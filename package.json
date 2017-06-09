@@ -22,5 +22,10 @@
   "bugs": {
     "url": "https://github.com/maca/ace_rga_edit/issues"
   },
-  "homepage": "https://github.com/maca/ace_rga_edit#readme"
+  "homepage": "https://github.com/maca/ace_rga_edit#readme",
+  "dependencies": {
+    "ace-builds": "^1.2.6",
+    "express": "^4.15.3",
+    "socketio": "^1.0.0"
+  }
 }
