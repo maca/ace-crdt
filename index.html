@@ -1,37 +1,60 @@
 <!doctype html>
 <html>
   <head>
-    <title>peeredit (based on) - conflict-free collaborative editing</title>
+    <title>Ace CRDT</title>
     <style>
-      #editor { 
+      html, body {
+        height: 100%;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+        margin: 0;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+
+      #editor {
         position: absolute;
         top: 0;
         right: 0;
         bottom: 0;
         left: 0;
         font-family: monospace;
-        font-size: 180%;
+        font-size: 1.5rem;
+      }
+
+      #editor-container {
+        position: relative;
+        width: 100%;
+        flex: 1 1;
       }
     </style>
   </head>
   <body>
-    <p>
-      It only makes sense when more than one person
-      writes at the same time, please be kind to each
-      other.
-    </p>
-    <p>
-      This demo might be a bit rough on the edges
-    </p>
-    <p>
-      source:
-      <a href="https://github.com/">
-        https://github.com/
-      </a>
-    </p>
-    <div id="editor"></div>
+    <div>
+      <h1>Collaborative text editing using CRDT</h1>
+      <p>
+        This demo makes sense when more than one person writes at the
+        same time, some quirks are to be expected, but the
+        text should remain the same across clients.
+        The contents are cleared at least once per day.
+        <strong>Please be kind to each other.</strong>
+        <br>
+        Source and details:
+        <a href="https://github.com/">
+          https://github.com/
+        </a>
+      </p>
+    </div>
 
-    <script src="/socket.io/socket.io.js"></script>
+    <div id="editor-container">
+      <div id="editor"></div>
+    </div>
+
     <script src="/socket.io/socket.io.js"></script>
     <script src="/ace.js"></script>
     <script src="/rga.js"></script>
