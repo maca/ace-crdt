@@ -1,0 +1,26 @@
+{
+  "name": "ace_rga_edit",
+  "version": "0.0.1",
+  "description": "Colaborative text editor proof of concept using CRDT (heavily based on jorendorff/peeredit)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/maca/ace_rga_edit.git"
+  },
+  "keywords": [
+    "CRDT",
+    "RGA",
+    "Ace",
+    "Texteditor",
+    "Collaborative"
+  ],
+  "author": "maca@aelita.io",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maca/ace_rga_edit/issues"
+  },
+  "homepage": "https://github.com/maca/ace_rga_edit#readme"
+}
