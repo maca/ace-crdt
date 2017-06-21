@@ -25,8 +25,10 @@ io.on('connection', function (socket) {
   console.log("connection - assigning id " + userId);
   socket.emit("init", {id: userId, history: rga.history()})
 
-  rga.onOp(op => { socket.emit("change", op) })
-  socket.on('change', rga.downstream.bind(rga))
+  socket.downstream = socket.emit.bind(socket, "change")
+  rga.subscribe(socket)
+
+  socket.on('change', op => { rga.downstream(op, socket) })
 })
 
 
