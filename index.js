@@ -4,9 +4,7 @@ const express = require('express')
   , app = express()
   , server = require('http').Server(app)
   , io = require('socket.io')(server)
-  , RGA = require('./lib/rga.js')
   , port = Number(process.env.PORT) || 5000
-  , rga = new RGA(0)
 
 
 app.use(express.static('lib'))
@@ -19,16 +17,14 @@ app.get('/', function (req, res) {
 
 let nextUserId = 1
 
+
 io.on('connection', function (socket) {
   var userId = nextUserId++;
 
   console.log("connection - assigning id " + userId);
-  socket.emit("init", {id: userId, history: rga.history()})
+  socket.emit("init", { id: userId })
 
-  socket.downstream = socket.emit.bind(socket, "change")
-  rga.subscribe(socket)
-
-  socket.on('change', op => { rga.downstream(op, socket) })
+  socket.on('change', op => { socket.broadcast.emit('change', op) })
 })
 
 
